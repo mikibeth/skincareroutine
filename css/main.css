@@ -1,67 +1,332 @@
 
 /* ==========================================================================
    Base styles:
-   ========================================================================== */
-/* Fix to include padding and border in the total width for each element */
+============================================================================= */
+/* Includes padding and border in the total width for each element */
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-	font-family: /* insert font */, sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+	-webkit-font-smoothing: antialiased;
 	margin: 0;
+	padding: 0;
 }
 
-/* Fix for responsive images */
+header {
+	background-color: #F9A179;
+	height: 600px;
+	min-height: 400px;
+	padding: 100px 1%;
+	position: relative;
+	text-align: center;
+	transition: all 2s ease-in-out;
+}
+
+header:hover {
+	background-color: #F0B8A3;
+}
+
+/* vertically centers within header - responsive*/
+.title {
+	color: white;
+	position: relative;
+	top: 25%;
+	-webkit-transform: translateY(-50%);
+ 	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+h1 {
+	font-size: 50px;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 300;
+}
+
+/* responsive */
 img {
-  max-width: 100%;
+	max-width: 100%;
 }
 
-/* ----------------------------------------
-Typography
-------------------------------------------- */
-
-
-
-/* ----------------------------------------
-Lists
-------------------------------------------- */
-ul a { 
-	text-decoration: none;
+p {
+	font-size: 20px;
 }
 
-ul {
+
+/* ----------------------------------------
+Nav Styles
+------------------------------------------- */
+.sticky-nav-wrapper {
+	height: 50px;
+	position: absolute;
+	bottom: 85.5px;
+	left: 0;
+	right: 0;
+}
+
+nav {
+	background-color: #FCEEE3;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+ 	transition: all 300ms ease-out;
+ 	width: 100%;
+}
+
+nav ul {
 	display: flex;
 	justify-content: space-between;
-	padding: 0;
-	list-style: none;
+	margin: 0;
+	padding: 0 25px;
 }
 
-li {
-
+/*keep - else displays bullets*/
+nav li {
+	display: inline-block;
 }
+
+nav a {
+	color: #A66142;
+	display: inline-block;
+	font-size: 60px;
+	margin: 10px;
+	padding: 20px;
+	text-decoration: none;
+	transition: all .3s ease-in-out;
+}
+
+nav .active {
+	border-bottom: 2px solid #F9A179;
+}
+
+.scrolled {
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+
+.anchor {
+	display: block;
+	height: 135px;
+	margin-top: -135px;
+	visibility: hidden;
+}
+
 
 /* ----------------------------------------
 Layout
 ------------------------------------------- */
-.row {
+.row-odd {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 50px;
+}
+
+.row-even {
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 50px;
+}
+
+.col-2-3-odd {
+	flex-basis: 64%;
+	padding-left: 25px;
+}
+
+.col-2-3-even {
+	flex-basis: 64%;
+	padding-right: 25px;
+}
+
+.extracredit {
+	margin: 50px;
+}
+
+.extrawrap {
 	display: flex;
 	justify-content: space-between;
 }
 
-.col-1-3 {
-	flex-basis: 32%;
-}
-
-.col-2-3 {
-	flex-basis: 64%;
-}
 
 /* ----------------------------------------
-Header
+Hover
 ------------------------------------------- */
-header {
+.container {
+	position: relative;
+	display: inline-block;  /*not sure*/
+	overflow: hidden;	/*not sure*/
+	max-width: 100%;
+	height: auto;
+}
+
+.image {
+	display: block;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(249, 161, 121, 0.5);
+	color: white;
+	opacity: 0;
+	transition: .5s ease;
+}
+
+.container:hover .overlay {
+	opacity: 1;
+}
+
+.text {
+	font-size: 20px;
+	display: inline-block; /*not sure if I need*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	text-align: center;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+
+/* ----------------------------------------
+Buttons
+------------------------------------------- */
+button {
+	cursor: pointer;
+	outline: 0;
+	border: 2px solid #44545E;
+	color: #44545E;
+	padding: 8px 25.5px;
+	padding: 8px 1.7rem;
+	background-color: transparent;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 12.299px;
+	font-size: .82rem;
+	letter-spacing: 1.2px;
+	letter-spacing: .08rem;
+	transition: all .3s ease-in-out;
+}
+
+button:hover {
+	background-color: #44545E;
+	color: white;
+	font-weight: 600;
+}
+
+
+/* ----------------------------------------
+Forms
+------------------------------------------- */
+input {
+	border: 2px solid #44545E;
+	margin-bottom: 12px;
+	margin-bottom: .8rem;
+	padding: 10px 10px;
+	outline: 0;
+	width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: #7C878E;
+   text-transform: uppercase;
+   letter-spacing: 0.75px;
+   letter-spacing: .05rem;
+   font-size: 12.299px;
+   font-size: .82rem;
+   font-weight: 600;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #7C878E;
+   text-transform: uppercase;
+   letter-spacing: 0.75px;
+   letter-spacing: .05rem;
+   font-size: 12.299px;
+   font-size: .82rem;
+   font-weight: 600;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #7C878E;
+   text-transform: uppercase;
+   letter-spacing: 0.75px;
+   letter-spacing: .05rem;
+   font-size: 12.299px;
+   font-size: .82rem;
+   font-weight: 600;
+}
+
+:-ms-input-placeholder {
+   color: #7C878E;
+   text-transform: uppercase;
+   letter-spacing: 0.75px;
+   letter-spacing: .05rem;
+   font-size: 12.299px;
+   font-size: .82rem;
+   font-weight: 600;
+}
+
+
+/* ----------------------------------------
+Tips Section
+------------------------------------------- */
+
+#tips {
+	margin: 50px;
+}
+
+#tips ul {
+	margin-top: 30px;
+	padding-left: 0px;
+}
+
+#tips li {
+	font-size: 20px;
+	list-style: none;
+	width: 100%;
+}
+
+#tips li:nth-child(odd) {
+	background: #FCEEE3;
+	border-bottom: 2px solid #EFD6AF;
+	cursor: pointer;
+	font-size: 20px;
+	line-height: 50px;
+	padding: 0 1em;
+}
+
+#tips li:nth-child(even) {
+	line-height: 50px;
+	margin: 0;
+	padding-left: 1em;
+}
+
+#tips li.active {
+	background-color: #F9A179;
+}
+
+.tipheader:after {
+	content: '\2795';
+	float: right;
+}
+
+.tipheader.active:after {
+	content: '\2796';
 }
 
 
@@ -69,8 +334,18 @@ header {
 Footer
 ------------------------------------------- */
 footer {
-	background-color: #F3BBA9;
+/*	background-color: #F3BBA9;*/
+	background-color: #FCEEE3;
 	overflow: auto;
+	text-align: center;
+}
+
+footer input {
+	padding: 11px 10px;
+	width: 300px;
+	margin-right: 30px;
+	margin-right: 2rem;
+	border: 0;
 	text-align: center;
 }
 
@@ -90,33 +365,81 @@ footer .wrap {
 	color: #44545E;
 }
 
+/*inline-block makes the icons wrap nicely when browser is resized
+*/
+
+.wrap {
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 auto;
+}
+
 .copyright {
 	border-top: 2px solid #44545E;
 	padding: 15px 0 3px;
 	padding: 1rem 0 .2rem;
 }
 
+
 /* ==========================================================================
    Media Styles
 ========================================================================== */
-@media screen and (max-width: 970px) {
-	.col-md-full {
+@media screen and (max-width: 1211px) {
+	.col-md-1-2-odd, .col-md-1-2-even {
+		flex-basis: 48%;
 	}
 }
 
-/* small devices - tablets */
-@media only screen and (max-width: 750px) {
-	.col-sm-full {
-		flex-basis: 100%;
+/* small devices */
+@media only screen and (max-width: 869px) {
+	.col-sm-1-2-odd, .col-sm-1-2-even {
+		padding: 0;
+	}
+
+	.extracredit {
+		display: none;
+	}
+
+	header {
+		height: 400px;
+	}
+
+	nav ul {
+		display: none;
 	}
 }
 
-/* extra small devices - cell phones */
+/* extra small devices */
 @media only screen and (max-width: 650px) {
 	.col-xs-full {
 		flex-basis: 100%;
 	}
-}
 
+
+	h1 {
+		font-size: 45px;
+	}
+
+	p, #tips li {
+		font-size: 18px;
+	}
+
+	#tips li:nth-child(odd) {
+		font-size: 18px;
+		line-height: 30px;
+	}
+
+	#tips li:nth-child(even) {
+		line-height: 30px;
+	}
+
+	.tipheader:after {
+		display: none;
+	}
+
+	.tipheader.active:after {
+		display: none;
+	}
+}
 
 
